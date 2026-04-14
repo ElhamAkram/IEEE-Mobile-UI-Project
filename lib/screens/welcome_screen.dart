@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_mobile_ui_project/screens/home_screen.dart';
 
-
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     backgroundColor: Color.fromARGB(255, 250, 250, 250),
-     body: SafeArea(child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const SizedBox(height: 32),
-          //title
-          Center(
-            child: const Text(
-             'Recipe Explorer',
-             style: TextStyle(
-               fontSize: 28,
-               fontWeight: FontWeight.bold,
-               color: Colors.black,
-             ),
-            ),
-          ),
-          const SizedBox(height: 32),
+      backgroundColor: Color.fromARGB(255, 250, 250, 250),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const SizedBox(height: 32),
+              //title
+              Center(
+                child: const Text(
+                  'Recipe Explorer',
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 32),
 
-          Container(
+              Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(24),
@@ -56,7 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black
+                  color: Colors.black,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -79,8 +79,20 @@ class WelcomeScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomeScreen(),
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            const HomeScreen(),
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                              const begin = Offset(0, 1);
+                              const end = Offset.zero;
+                              final tween = Tween(begin: begin, end: end);
+                              final offsetAnimation = animation.drive(tween);
+                              return SlideTransition(
+                                position: offsetAnimation,
+                                child: child,
+                              );
+                            },
                       ),
                     );
                   },
@@ -101,14 +113,10 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
-
-
-        ],
+            ],
+          ),
+        ),
       ),
-
-     ),),
-     
     );
   }
 }
