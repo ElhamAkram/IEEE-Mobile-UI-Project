@@ -95,7 +95,7 @@ class _ItemDetailsState extends State<ItemDetails> {
       backgroundColor: const Color(0xFFFFF8F2),
       body: CustomScrollView(
         slivers: [
-          // ======= App Bar مع الصورة =======
+          // ======= App Bar مع الصورة ======
           SliverAppBar(
             expandedHeight: 280,
             pinned: true,
