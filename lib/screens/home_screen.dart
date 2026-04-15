@@ -44,7 +44,6 @@ class _HomepageState extends State<HomeScreen> {
   }
 }
 
-// ====== Home Content مفصول في Widget لوحده ======
 class _HomeContent extends StatelessWidget {
   const _HomeContent();
 

@@ -10,7 +10,7 @@ class ProfileScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.person, size: 80, color: Colors.green),
+            Icon(Icons.person, size: 80, color: const Color.fromARGB(255, 229, 159, 27)),
             SizedBox(height: 20),
             Text("Profile Screen", style: TextStyle(fontSize: 24)),
           ],
