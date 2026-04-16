@@ -72,8 +72,8 @@ FavoriteScreen / ProfileScreen
 
 ## 👨‍💻 Built With
 
-- [Flutter](https://flutter.dev/) — UI Framework
-- [Dart](https://dart.dev/) — Programming Language
+- [Flutter] — UI Framework
+- [Dart] — Programming Language
 
 ---
 
