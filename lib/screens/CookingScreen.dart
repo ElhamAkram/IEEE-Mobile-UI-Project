@@ -21,7 +21,7 @@ class _CookingScreenState extends State<CookingScreen> {
     },
     {
       "title": "Tuna",
-      "subtitle": "Light & healthy meals",
+      "subtitle": "Light & healthy meals ",
       "icon": "🐟",
       "color": const Color(0xFF1976D2),
       "lightColor": const Color(0xFFE3F2FD),
