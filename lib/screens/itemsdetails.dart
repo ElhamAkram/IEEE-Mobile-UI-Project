@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'CookingScreen.dart';
 // ========= داتا كل الأكلات =========
 final Map<String, Map<String, dynamic>> recipesData = {
   "Creemy pasta": {
@@ -93,9 +93,52 @@ class _ItemDetailsState extends State<ItemDetails> {
 
     return Scaffold(
       backgroundColor: const Color(0xFFFFF8F2),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
+        decoration: BoxDecoration(
+          color: const Color(0xFFFFF8F2),
+          boxShadow: [
+            BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 8, offset: const Offset(0, -3)),
+          ],
+        ),
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              PageRouteBuilder(
+                transitionDuration: const Duration(milliseconds: 400),
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                const CookingScreen(),
+                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                  return SlideTransition(
+                    position: Tween(begin: const Offset(1, 0), end: Offset.zero)
+                        .chain(CurveTween(curve: Curves.easeInOut))
+                        .animate(animation),
+                    child: child,
+                  );
+                },
+              ),
+            );
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFFFF8C00),
+            foregroundColor: Colors.white,
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+            elevation: 0,
+          ),
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.restaurant_menu, size: 20),
+              SizedBox(width: 8),
+              Text("Start Cooking", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
+            ],
+          ),
+        ),
+      ),
       body: CustomScrollView(
         slivers: [
-          // ======= App Bar مع الصورة ======
+          // ======= App Bar مع الصورة =======
           SliverAppBar(
             expandedHeight: 280,
             pinned: true,
